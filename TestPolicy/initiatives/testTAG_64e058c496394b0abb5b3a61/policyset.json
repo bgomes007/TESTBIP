@@ -1,0 +1,58 @@
+{
+ "properties": {
+  "displayName": "testTAG",
+  "policyType": "Custom",
+  "description": "testTAG",
+  "metadata": {
+   "version": "1.0",
+   "createdBy": "0b5a8c01-5bc5-44ac-8869-df38da7ba516",
+   "createdOn": "2021-01-19T19:40:26.5957764Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "parameters": {
+   "ENVValues": {
+    "type": "String",
+    "metadata": {
+     "displayName": "ENVironment Tag values",
+     "description": "ENVironment Tag values"
+    },
+    "allowedValues": [
+     "Production",
+     "Test",
+     "DEV"
+    ],
+    "defaultValue": "Test"
+   }
+  },
+  "policyDefinitions": [
+   {
+    "policyDefinitionReferenceId": "Add a tag to subscriptions_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/96d9a89c-0d67-41fc-899d-2b9599f76a24",
+    "parameters": {
+     "tagName": {
+      "value": "ENV"
+     },
+     "tagValue": {
+      "value": "[parameters('ENVValues')]"
+     }
+    },
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Inherit a tag from the subscription_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/b27a0cbd-a167-4dfa-ae64-4337be671140",
+    "parameters": {
+     "tagName": {
+      "value": "ENV"
+     }
+    },
+    "groupNames": []
+   }
+  ],
+  "policyDefinitionGroups": []
+ },
+ "id": "/subscriptions/74589013-282f-42c3-a3cc-5029e35770a4/providers/Microsoft.Authorization/policySetDefinitions/64e058c496394b0abb5b3a61",
+ "type": "Microsoft.Authorization/policySetDefinitions",
+ "name": "64e058c496394b0abb5b3a61"
+}
